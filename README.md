@@ -51,23 +51,88 @@ Make sure you have the following installed:
    ```bash
    git clone https://github.com/Goldspear21/Student_grade_database.git
    cd Student_grade_database
-2.Install dependencies:
-```bash
-pip install mysql-connector-python
+2. Install dependencies:
+   ```bash
+    pip install mysql-connector-python
 
-3.Set up the MySQL database:
+3. Set up the MySQL database:
+    ```sql
+    CREATE DATABASE student_db;
+
+    USE student_db;
+
+    CREATE TABLE students (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      name VARCHAR(100),
+      age INT,
+      math_grade INT DEFAULT NULL,
+      science_grade INT DEFAULT NULL,
+      english_grade INT DEFAULT NULL
+    );
+ 3. Set up the MySQL database:
+    ```python
+    def get_connection():
+    return mysql.connector.connect(
+        host='localhost',
+        user='your_mysql_user',
+        password='your_mysql_password',
+        database='student_db'
+    )
+  
+  4. Run the program:
+     ```bash
+     python main.py
+
+## 🎓 Student Grade Database
+
+A Python-based student grade management system with a GUI and persistent data storage using MySQL.
+
+---
+
+## 🛠️ Technologies Used
+
+- **Python (Miniconda 3)**
+- **Tkinter** – for the GUI
+- **MySQL** – for persistent data storage
+- **mysql-connector-python** – for MySQL connection
+
+---
+
+## 📁 Project Structure
+```
+📁 Student_grade_database     # Main project folder
+├── 📄 main.py                # Entry point of the application
+├── 📄 ui.py                  # GUI layout and logic using Tkinter
+├── 📄 db.py                  # Handles all MySQL database operations
+└── 📄 README.md              # Project documentation and setup instructions
+```
+
+---
+
+## 🧠 Future Improvements
+
+- Export student data to CSV or Excel
+- Add authentication/user roles
+- Add GPA calculator and progress analytics
+- Add support for more subjects or semesters
+- Switch to SQLite for easier portability
+
+---
+
+## 🙌 Acknowledgements
+
+- Built as part of a personal project to practice database and GUI integration.
+- Inspired by real-world student data management scenarios.
+
+---
+
+## ⭐ Support
+
+If you found this project useful, please consider giving it a ⭐ on GitHub!
 
 
-```sql
-CREATE DATABASE student_db;
 
-USE student_db;
+   
 
-CREATE TABLE students (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(100),
-  age INT,
-  math_grade INT DEFAULT NULL,
-  science_grade INT DEFAULT NULL,
-  english_grade INT DEFAULT NULL
-);
+
+
